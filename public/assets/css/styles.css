@@ -1,8 +1,24 @@
-html,
-body {
+:root {
+  --primary: #313131;
+  --secondary: #db6b0f;
+  --third: #535353;
+  --text: #ffffff;
+  --text2: #cfcfcf;
+  --color: #db6b0f;
+  font-family: 'Open Sans', sans-serif;
+}
+
+html, body {
+  color: var(--text);
   height: 100%;
   margin: 0;
   padding: 0;
+  background-color: var(--primary);
+  font-family: 'Open Sans', sans-serif;
+}
+
+.jumbotron {
+  background-color: var(--secondary);
 }
 
 .save-note {
@@ -16,12 +32,27 @@ body {
   cursor: pointer;
 }
 
-.note-textarea,
-.note-title {
-  color: #000000;
+nav {
+  background-color: var(--secondary);
+  font-family: 'Open Sans', sans-serif;
+}
+
+.list-group-item {
+  background-color: var(--third);
+  font-family: 'Open Sans', sans-serif;
+}
+.card {
+  background-color: var(--primary);
+  font-family: 'Open Sans', sans-serif;
+}
+
+.note-textarea, .note-title {
+  color: var(--text);
   width: 100%;
   outline: none;
   border: none;
+  background-color: var(--primary);
+  font-family: 'Open Sans', sans-serif;
 }
 
 .note-textarea {
@@ -36,9 +67,21 @@ body {
   font-size: 3rem;
 }
 
-.note-title:read-only,
+.note-title:read-only, .note-textarea:read-only {
+  color: var(--text2);
+}
+.note-title:read-only {
+  color: var(--text);
+}
 .note-textarea:read-only {
-  color: #757575;
+  color: var(--text2);
+}
+
+.note-title {
+  color: var(--text);
+}
+.note-textarea {
+  color: var(--text2);
 }
 
 .list-container .card {
@@ -60,11 +103,6 @@ body {
   border-top-left-radius: 0;
 }
 
-.list-item-title {
-  display: inline-block;
-  width: 75%;
-}
-
 .list-container i {
   font-size: 1.1rem;
   cursor: pointer;
@@ -75,4 +113,19 @@ body {
   border-right: none;
   padding: 20px;
   cursor: pointer;
+}
+
+/* On screens that are 600px wide or less, make the menu links stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .note-textarea {
+    font-size: 1rem;
+    height: calc(100% - 63px);
+    padding-top: 15px;
+  }
+  
+  .note-title {
+    height: 50px;
+    margin-top: 13px;
+    font-size: 2rem;
+  }
 }
